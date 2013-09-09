@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<title>User manager on Backbone.js</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -13,19 +14,7 @@
 
 	<div class="row">
 		<div class="col-md-6">
-			<div class="list-group js-user-list">
-				<!--<div class="list-group-item">User name</div>-->
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="list-group js-group-list">
-				<!--<div class="list-group-item">Group name</div>-->
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<form class="js-new-user-form">
+			<form class="create-form js-new-user-form">
 				<div class="input-group">
 					<input type="text" class="form-control js-new-user-name" placeholder="New user name">
 					<span class="input-group-btn">
@@ -33,16 +22,21 @@
 					</span>
 				</div>
 			</form>
+            <div class="list-group js-user-list"></div>
 		</div>
 		<div class="col-md-6">
-			<div class="input-group">
-				<input type="text" class="form-control js-new-group-name" placeholder="New group name">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="submit">Add group</button>
-				</span>
-			</div>
+            <form class="create-form js-new-user-form">
+                <div class="input-group">
+                    <input type="text" class="form-control js-new-group-name" placeholder="New group name">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Add group</button>
+                    </span>
+                </div>
+            </form>
+            <div class="list-group js-group-list"></div>
 		</div>
 	</div>
+
 </div>
 
 <script src="http://yandex.st/jquery/2.0.3/jquery.min.js"></script>
