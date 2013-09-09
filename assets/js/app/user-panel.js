@@ -41,7 +41,7 @@
       var name = $input.val();
       name = $.trim(name);
 
-      if (name) {
+      if (name.length) {
         this.collection.create({name: name}, {
           wait: true,
           success: function () {
