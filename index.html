@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>User manager on Backbone.js</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+<div class="container">
+	<h1>User manager on Backbone.js</h1>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="list-group js-user-list">
+				<!--<div class="list-group-item">User name</div>-->
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="list-group js-group-list">
+				<!--<div class="list-group-item">Group name</div>-->
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<form class="js-new-user-form">
+				<div class="input-group">
+					<input type="text" class="form-control js-new-user-name" placeholder="New user name">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="submit">Add user</button>
+					</span>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-6">
+			<div class="input-group">
+				<input type="text" class="form-control js-new-group-name" placeholder="New group name">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit">Add group</button>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="http://yandex.st/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://yandex.st/json2/2011-10-19/json2.min.js"></script>
+<script src="http://underscorejs.org/underscore-min.js"></script>
+<script src="http://backbonejs.org/backbone.js"></script>
+<script src="assets/js/backbone.localStorage.js"></script>
+<script src="assets/js/backbone-relational.js"></script>
+
+<script src="assets/js/app/core.js"></script>
+<script src="assets/js/app/user.js"></script>
+<script src="assets/js/app/group.js"></script>
+<script src="assets/js/app/user-panel.js"></script>
+<script src="assets/js/app/group-panel.js"></script>
+<script src="assets/js/app/manager.js"></script>
+
+</body>
+</html>
