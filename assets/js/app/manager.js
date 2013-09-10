@@ -22,4 +22,7 @@
 		console.log(arguments);
 	});
 
+	users.fetch();
+	groups.fetch();
+
 }(jQuery, Backbone));
