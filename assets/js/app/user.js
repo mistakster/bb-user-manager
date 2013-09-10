@@ -31,15 +31,14 @@
 		},
 
 		render: function () {
-			this.$el
-				.html(App.UserView.template({user: this.model.toJSON()}))
-				.attr("id", "user-" + this.model.id);
+			this.$el.attr("id", "user-" + this.model.id)
+				.html(App.UserView.template({user: this.model.toJSON()}));
 			return this;
 		}
 
 	}, {
 
-		template: _.template('<button type="button" class="close">×</button><span class="user-object__name"><%= user.name %></span>')
+		template: _.template('<button type="button" class="close">&times;</button><span class="user-object__name"><%= user.name %></span>')
 
 	});
 
