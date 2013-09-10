@@ -10,3 +10,26 @@ var App = {};
 	};
 
 }());
+
+
+(function () {
+
+	App.wrapInPromise = function (ctx, fn, hash) {
+		var dfd, promise, out;
+
+		dfd = $.Deferred();
+		promise = dfd.promise();
+		out = fn.call(ctx, hash, {
+			wait: true,
+			success: function () {
+				dfd.resolveWith(promise, [out]);
+			},
+			error: function () {
+				dfd.rejectWith(promise, [out]);
+			}
+		});
+
+		return promise;
+	}
+
+}());

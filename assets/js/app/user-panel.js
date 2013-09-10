@@ -2,31 +2,28 @@
 
 	App.Users = Backbone.Collection.extend({
 		localStorage: new Backbone.LocalStorage("Users"),
-    createNewUser: function (hash) {
-      var collection = this;
-      var dfd = $.Deferred(), promise = dfd.promise();
-      var model = this.create(hash, {
-        wait: true,
-        success: function () {
-          dfd.resolveWith(promise, [model]);
-        },
-        error: function () {
-          collection.remove(model);
-          dfd.rejectWith(promise, [model]);
-        }
-      });
-      return promise;
+		/**
+		 * Create new user in list
+		 * @param {Object} hash initial user data
+		 * @returns {Object} promise for delayed operation
+		 */
+    createUser: function (hash) {
+			var collection = this;
+			return App.wrapInPromise(collection, collection.create, hash)
+				.fail(function (model) {
+					collection.remove(model);
+				});
     }
 	});
 
 	App.UsersView = Backbone.View.extend({
 
     events: {
-      "submit .js-new-user-form": "createNewUser"
+      "submit .js-new-user-form": "submitUserName"
     },
 
 		initialize: function () {
-      _.bindAll(this, "createUserView");
+      _.bindAll(this, "createUserView", "submitUserName");
 
 			this.handleCollectionEvents();
 			return this;
@@ -59,7 +56,7 @@
 			});
 		},
 
-    createNewUser: function (e) {
+		submitUserName: function (e) {
       e.preventDefault();
 
       var $submit = this.$el.find(".js-new-user-form button");
@@ -70,7 +67,7 @@
       if (name.length) {
         $input.add($submit).attr("disabled", true);
         this.collection
-          .createNewUser({name: name})
+          .createUser({name: name})
           .always(function (model) {
             $input.val("").add($submit).attr("disabled", false);
           });
