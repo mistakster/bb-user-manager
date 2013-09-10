@@ -38,7 +38,8 @@
 
 	}, {
 
-		template: _.template('<button type="button" class="close">&times;</button><span class="user-object__name"><%= user.name %></span>')
+		template: _.template('<% if (user.isReadyToAdd) { %><input type="checkbox"> <% } %>' +
+			'<button type="button" class="close">&times;</button><span class="user-object__name"><%= user.name %></span>')
 
 	});
 

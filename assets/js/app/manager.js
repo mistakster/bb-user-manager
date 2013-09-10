@@ -25,4 +25,21 @@
 	users.fetch();
 	groups.fetch();
 
+	var rels = new App.UserGroupRelations();
+	rels.setUsersAndGroups(users, groups);
+
+	rels.fetch();
+
+	groups.on("selected", function (group, val) {
+		if (!val) {
+			return;
+		}
+
+		var groupUsers = rels.findUsersInGroup(group);
+
+		_.chain(users.models).difference(groupUsers).forEach(function (user) {
+			user.set("isReadyToAdd", true);
+		})
+	});
+
 }(jQuery, Backbone));
