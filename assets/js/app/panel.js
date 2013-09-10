@@ -29,9 +29,9 @@
 		},
 
 		createItemView: function (model) {
-			var panel = this.$el;
+			var listGroup = this.$el.find(".list-group");
 			var constructor = this.itemView;
-			new constructor({model: model}).$el.appendTo(panel);
+			new constructor({model: model}).$el.appendTo(listGroup);
 		},
 
 		handleCollectionEvents: function () {
